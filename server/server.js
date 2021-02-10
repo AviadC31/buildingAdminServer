@@ -29,11 +29,4 @@ app.use((req, res, next) => {
 app.use('/tenants-api/', tenantsApi)
 app.use('/users-api/', usersApi)
 
-// if(process.env.NODE_ENV === 'production'){
-//     app.use(express.static(path.join(__dirname, '../client/build')));
-//     app.get('*', (req, res) => {
-//         res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-//     });
-// }
-
 app.listen(port, () => console.log("server up and running on port " + port))
