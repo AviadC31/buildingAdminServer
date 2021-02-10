@@ -9,14 +9,14 @@ import './App.css'
 const { Search } = Input
 
   export default function App() {
-    const [remember, setRemember] = useState(true)
     const [tenantsData, setTenantsData] = useState([{}])
     const [filterdData, setFilterdData] = useState([{}])
-    const [hint, displayHint] = useState(false)
+    const [remember, setRemember] = useState(true)
     const [inputVal, setInputVal] = useState(true)
     const [isSignd, setIsSignd] = useState(false)
+    const [hint, displayHint] = useState(false)
     const [err, setErr] = useState(false)
-    let textInput = React.createRef()
+    const textInput = React.createRef()
 
     //landing
     useEffect(()=>{

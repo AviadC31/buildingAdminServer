@@ -25,7 +25,7 @@ export default function Filter({ filterBy }) {
   return (
     <div >
       <Dropdown className="filter" overlay={menu}>
-        <a className="ant-dropdown-link" href="#">
+        <a className="ant-dropdown-link" href="#0">
           Filter By <DownOutlined />
         </a>
       </Dropdown>

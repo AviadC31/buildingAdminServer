@@ -10,7 +10,6 @@ export default function NormalLoginForm({ isLogged, remember }){
 
 //Handle remembernce to localstorage
   const handleCheckClick=(e)=>{
-    console.log(e.target.checked)
     remember(e.target.checked)
   }
 

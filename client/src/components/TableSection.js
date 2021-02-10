@@ -40,14 +40,12 @@ const EditableCell = ({
   //Edit Fields
   const toggleEdit = async (value) => {
     setEditing(!editing)
-    if(editing) {
-      if(record._id){
+      if(record._id && editing){
         axios.put(`http://localhost:8080/tenants-api/tenant/${record._id}`,{
           field: dataIndex, 
           value: value[dataIndex]
         })
       }
-    }
       form.setFieldsValue({
         [dataIndex]: record[dataIndex],
       })
@@ -60,7 +58,7 @@ const EditableCell = ({
       toggleEdit(values)
       handleSave({ ...record, ...values })
     } catch (errInfo) {
-      console.log('Save failed:', errInfo)
+      console.error('Save failed:', errInfo)
     }
   }
 
@@ -129,18 +127,21 @@ export default function TableSection({ dataSource, liveData }) {
 
   //Saving fields changes to DB
   const handleSave = (row) => {
-    console.log(data)
     const newData = [...data]
     const index = newData.findIndex((item) => row._id === item._id)
     const item = newData[index]
     newData.splice(index, 1, { ...item, ...row })
-    if( row.name &&
+    if( 
+       !row._id &&
+        row.name &&
         row.phone &&
         row.address &&
         row.financialDebt&& 
         index >= data.length-1
       ){
         delete row.operation
+        console.log(newData)
+        console.log(row)
       axios.post('http://localhost:8080/tenants-api/tenant', row)
             .then(r=> newData[index]['_id'] = r.data._id)
             .catch(err=>alert("Input invalid"))
@@ -192,7 +193,7 @@ export default function TableSection({ dataSource, liveData }) {
               ...tenant,
               operation:
             <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(tenant)}>
-              <a>Delete</a>
+              <a href="#0">Delete</a>
             </Popconfirm>
            }
           }):null}
