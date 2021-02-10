@@ -1,0 +1,191 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+#title{
+  font-size: 2vw;
+  margin: 5vw 0 1vw;
+}
+
+@media screen and (max-width: 750px) {
+  #title{
+    font-size: 10vw;
+    margin: 20vw 0 1vw;
+  }
+}
+
+#root{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.ant-table-thead > tr > th, 
+td{
+  text-align: center;
+}
+
+.ant-table-thead >
+tr >
+th, .ant-table-tbody >
+tr >
+td, .ant-table tfoot >
+tr >
+th, .ant-table tfoot >
+tr >
+td{
+  padding: .5vw 1vw .5vw 1vw;
+}
+
+@media screen and (max-width: 750px) {
+  .ant-table-thead >
+  tr >
+  th, .ant-table-tbody >
+  tr >
+  td, .ant-table tfoot >
+  tr >
+  th, .ant-table tfoot >
+  tr >
+  td{
+    padding: 0.2vw 0.8vw 0.2vw 0.8vw;
+  }
+}
+
+/* .ant-input-suffix{
+  display:none;
+} */
+
+.ant-input-search{
+  width: auto;
+}
+
+.ant-btn{
+    margin:2vw 0 .5vw 0;
+}
+
+@media screen and (max-width: 750px) {
+  .ant-btn{
+    margin:5vw 0 5vw 0;
+  }
+}
+
+#correctInp{
+  text-align: center;
+}
+
+#wrongInp{
+  box-shadow: 0 0 5px rgb(240, 47, 47);
+  background: rgb(245, 233, 233);
+  text-align: center;
+}
+
+.ant-input-affix-wrapper > input.ant-input{
+  padding: .5vw;
+}
+
+#hint{
+  font-size: .7vw;
+  color: #ada9a9;
+  margin-bottom: 1vw;
+}
+
+#hidden{
+  display: none;
+}
+
+:placeholder-shown{
+  text-align: center;
+  color: white;
+}
+
+.errOff{
+  display:none;
+}
+
+.errOn{
+  color: red;
+}
+
+.ant-table-column-sorters {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: .5vw .5vw;
+}
+
+/* 
+@media screen and (max-width: 750px) {
+  .ant-table-column-sorters {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 3vw 3vw;
+  }
+} */
+
+.ant-table-wrapper {
+  width: 80%;
+}
+
+
+@media screen and (max-width: 750px) {
+  .ant-table-wrapper {
+    max-width: 90%;
+  }
+}
+
+.editable-cell {
+  position: relative;
+}
+
+.editable-cell-value-wrap {
+  /* padding: 5px 12px; */
+  cursor: pointer;
+  text-align: center;
+  padding-left: 24px;
+  text-align: center;
+}
+
+.editable-row:hover .editable-cell-value-wrap {
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+}
+.ant-input-affix-wrapper{
+  height: 2vw;
+  padding-left:.2vw;
+  margin: .5vw 0 .2vw 0;
+}
+
+[data-theme='dark'] .editable-row:hover .editable-cell-value-wrap {
+  border: 1px solid #434343;
+}
+
+#tableSection{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#components-form-demo-normal-login .login-form {
+  max-width: 300px;
+}
+#components-form-demo-normal-login .login-form-forgot {
+  float: right;
+}
+#components-form-demo-normal-login .ant-col-rtl .login-form-forgot {
+  float: left;
+}
+#components-form-demo-normal-login .login-form-button {
+  width: 100%;
+}
+
+.ant-table-cell{
+  text-align: center;
+  width:15vw;
+}
+
