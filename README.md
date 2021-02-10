@@ -47,7 +47,6 @@ The page will reload if you make edits.
 
 You will also see any lint errors in the console.
 
-![Alt text](./readMeImgs/yoda.gif?raw=true "Optional Title")
 
 Enjoy!
 
