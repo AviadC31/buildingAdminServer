@@ -23,6 +23,9 @@ const { Search } = Input
       isLogged()
     },[])
 
+    //remeber user handle while leaving site
+    window.addEventListener("beforeunload", () => {if(!remember) localStorage.clear()})
+
     //Signing Out user
     const signOut = async() => {
       const token = await localStorage.getItem('token')
@@ -60,14 +63,18 @@ const { Search } = Input
     //search handle with validation
     const handleClick = () => {
       let value = textInput.current.state.value
-      if(value && value.length <40 && value.length > 1){
+      if(value && value.length <40 && value.length > 0){
         setInputVal(true)
         if(value === 'all'){
           setFilterdData([...tenantsData])
           setErr(false)
         } 
         else{
-          const filterd = tenantsData.filter(f=>f.name === value)
+          
+          const filterd = tenantsData.filter(f=> f.name.includes(value) ||
+                                                 f.phone.includes(value) ||
+                                                 f.address.includes(value)
+                                            )
           if(filterd.length > 0){
             setErr(false)
             setFilterdData(filterd)
@@ -106,14 +113,14 @@ const { Search } = Input
                 ref={textInput}
                 id={inputVal? 'correctInp' : 'wrongInp'}
                 label="Tester Name"
-                placeholder="Enter tenant name"
+                placeholder="Enter any tenant detail"
                 onSearch={handleClick}
                 onMouseEnter={()=>displayHint(true)}
                 onMouseLeave={()=>displayHint(false)}
               />
               <p className={err ? 'errOn' : 'errOff'}>tenant doesn't exist</p>
             </div>
-            <span id={hint? "hint" : "hidden"}>Search 'all' for full information</span>
+            <span id={hint? "hint" : "hidden"}>Search 'all' for all tenants information</span>
             <FilterDataSection data={tenantsData} filterData={filterData}/>
             <TableSection
                     dataSource={filterdData[0]._id ? filterdData : null }

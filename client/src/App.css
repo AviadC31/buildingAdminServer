@@ -39,6 +39,22 @@ td{
   padding: .5vw 1vw .5vw 1vw;
 }
 
+
+@media screen and (max-width: 750px) {
+
+  .ant-table-thead >
+  tr >
+  th, .ant-table-tbody >
+  tr >
+  td, .ant-table tfoot >
+  tr >
+  th, .ant-table tfoot >
+  tr >
+  td{
+    padding: .2vw;
+  }
+}
+
 @media screen and (max-width: 750px) {
   .ant-table-thead >
   tr >
@@ -88,7 +104,8 @@ td{
 #hint{
   font-size: .7vw;
   color: #ada9a9;
-  margin-bottom: 1vw;
+  position: absolute;
+  margin-top:11.5vw;
 }
 
 #hidden{
@@ -146,7 +163,6 @@ td{
   /* padding: 5px 12px; */
   cursor: pointer;
   text-align: center;
-  padding-left: 24px;
   text-align: center;
 }
 
@@ -157,7 +173,13 @@ td{
 .ant-input-affix-wrapper{
   height: 2vw;
   padding-left:.2vw;
-  margin: .5vw 0 .2vw 0;
+  margin: .5vw 0 1vw 0;
+}
+
+@media screen and (max-width: 750px) {
+  .ant-input-affix-wrapper{
+    height: 10vw;
+  }
 }
 
 [data-theme='dark'] .editable-row:hover .editable-cell-value-wrap {
@@ -165,10 +187,18 @@ td{
 }
 
 #tableSection{
+  margin-top: 15vw;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+@media screen and (max-width: 750px) {
+  #tableSection{
+    margin-top: 80vw;
+  }
 }
 
 #components-form-demo-normal-login .login-form {
@@ -187,5 +217,21 @@ td{
 .ant-table-cell{
   text-align: center;
   width:15vw;
+  height: 4vw;
 }
 
+.editable-cell-value-wrap{
+  min-height: 2vw;
+  padding: 6px 24px 6px 24px;
+}
+
+@media screen and (max-width: 750px) {
+  .editable-cell-value-wrap{
+    min-height: 6vw;
+    padding: 2px 24px 2px 24px;
+  }
+}
+
+.ant-dropdown>.ant-dropdown-placement-bottomLeft{
+  left: 243px;
+}

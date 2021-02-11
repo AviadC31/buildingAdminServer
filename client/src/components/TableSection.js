@@ -112,15 +112,15 @@ export default function TableSection({ dataSource, liveData }) {
       setData(data.filter((user) => user._id !== record._id))
     }
     
-  //Adding new tenant to DB and update local state
+  //Adding a new tenant
     const handleAdd = () => {
       alert("Please fill in the entire line in order to keep the information about the tenant")
       const newData = data ? [...data] : []
-        newData.push({
-            name: null,
-            phone: null,
-            address: null,
-            financialDebt: null
+        newData.unshift({
+            name: '',
+            phone: '',
+            address: '',
+            financialDebt: ''
           })
         setData(newData)
    }
@@ -136,12 +136,10 @@ export default function TableSection({ dataSource, liveData }) {
         row.name &&
         row.phone &&
         row.address &&
-        row.financialDebt&& 
-        index >= data.length-1
+        row.financialDebt
+        // &&index === 0
       ){
         delete row.operation
-        console.log(newData)
-        console.log(row)
       axios.post('http://localhost:8080/tenants-api/tenant', row)
             .then(r=> newData[index]['_id'] = r.data._id)
             .catch(err=>alert("Input invalid"))
