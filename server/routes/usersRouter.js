@@ -20,16 +20,20 @@ router.post("/register", (req, res) => {
   
 router.post("/sign-in", (req, res) => {
 const { username, password } = req.body
+console.log(username)
+console.log(password)
 User.findOne({ username })
     .then((user) => {
     if (!user) res.status(404).send("User doesn't exist")
     bcrypt.compare(password, user.password, (err, result)=> {
         if (err) res.status(400).send(err)
         if (!result) res.status(401).send("Unknown password")
-        const event = new Event({ event: "sign-in", user})
-        event.save()
-        const accessToken = jwt.sign({ user }, process.env.ACCESS_TOKEN_SECRET/**, {expiresIn: '1m'}**/)
-        res.send({ accessToken })
+        else{
+            const event = new Event({ event: "sign-in", user})
+            event.save()
+            const accessToken = jwt.sign({ user }, process.env.ACCESS_TOKEN_SECRET/**, {expiresIn: '1m'}**/)
+            res.send({ accessToken })
+         }
         })
     })
 })

@@ -3,7 +3,7 @@ const usersApi = require('./routes/usersRouter')
 const express = require('express')
 const path = require('path')
 const app = express()
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 8080
 const mongoose = require('mongoose')
 mongoose.connect(process.env.MONGODB_URI,
     {
@@ -16,6 +16,8 @@ mongoose.connect(process.env.MONGODB_URI,
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+app.use(express.static('../client/build'))
+
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*")
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization")
