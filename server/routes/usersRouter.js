@@ -20,7 +20,6 @@ router.post("/register", (req, res) => {
   
 router.post("/sign-in", (req, res) => {
 const { username, password } = req.body
-console.log('logged')
 User.findOne({ username })
     .then((user) => {
     if (!user) res.status(404).send("User doesn't exist")
