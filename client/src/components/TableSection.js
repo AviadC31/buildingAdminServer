@@ -41,7 +41,7 @@ const EditableCell = ({
   const toggleEdit = async (value) => {
     setEditing(!editing)
       if(record._id && editing){
-        axios.put(`http://localhost:8080/tenants-api/tenant/${record._id}`,{
+        axios.put(`http://18.193.224.15/tenants-api/tenant/${record._id}`,{
           field: dataIndex, 
           value: value[dataIndex]
         })
@@ -108,7 +108,7 @@ export default function TableSection({ dataSource, liveData }) {
     
   //Removing tenant from DB by phone number (unique field)
     const handleDelete = (record) => {
-      axios.delete(`http://localhost:8080/tenants-api/tenant/${record.phone}`)
+      axios.delete(`http://18.193.224.15/tenants-api/tenant/${record.phone}`)
       setData(data.filter((user) => user._id !== record._id))
     }
     
@@ -140,7 +140,7 @@ export default function TableSection({ dataSource, liveData }) {
         // &&index === 0
       ){
         delete row.operation
-      axios.post('http://localhost:8080/tenants-api/tenant', row)
+      axios.post('http://18.193.224.15/tenants-api/tenant', row)
             .then(r=> newData[index]['_id'] = r.data._id)
             .catch(err=>alert("Input invalid"))
     }

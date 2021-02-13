@@ -16,7 +16,7 @@ export default function NormalLoginForm({ isLogged, remember }){
 //set events in server
   const onFinish = (values) => {
     if(isRegisterd){
-      axios.post('http://localhost:8080/users-api/sign-in', values) 
+      axios.post('http://18.193.224.15/users-api/sign-in', values) 
             .then(r=>{
               localStorage.setItem('token', r.data.accessToken)
               isLogged()
@@ -24,7 +24,7 @@ export default function NormalLoginForm({ isLogged, remember }){
             })
             .catch(err=>setErr(true))
     }else{
-      axios.post('http://localhost:8080/users-api/register', values) 
+      axios.post('http://18.193.224.15/users-api/register', values) 
       .then(r=>{
         setIsRegisterd(true)
         setErr(false)

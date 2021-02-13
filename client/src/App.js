@@ -29,7 +29,7 @@ const { Search } = Input
     //Signing Out user
     const signOut = async() => {
       const token = await localStorage.getItem('token')
-      axios.post('http://localhost:8080/users-api/sign-out',{} ,{
+      axios.post('http://18.193.224.15/users-api/sign-out',{} ,{
         headers: {
             'Authorization': token
           }
@@ -43,7 +43,7 @@ const { Search } = Input
     const isLogged = async () =>{
       const token = await localStorage.getItem('token')
       if(token){
-        axios.get('http://localhost:8080/tenants-api/tenants', {
+        axios.get('http://18.193.224.15/tenants-api/tenants', {
             headers: {
                 'Authorization': token
               }
